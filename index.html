@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Síndrome do Expert Tecnológico</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to right, #f0f4f8, #e8ecf4);
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+      width: 100%;
+      max-width: 900px;
+      transition: all 0.3s ease-in-out;
+    }
+    .slide {
+      display: none;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+    .active {
+      display: block;
+    }
+    h2 {
+      font-size: 28px;
+      color: #1a237e;
+      margin-bottom: 16px;
+    }
+    p, li {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    .navigation {
+      margin-top: 30px;
+      text-align: center;
+    }
+    button {
+      background: #3949ab;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 12px 24px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 0 8px;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #303f9f;
+    }
+    a {
+      color: #1a237e;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="slide1" class="slide active">
+      <h2>Área do conhecimento</h2>
+      <p>Psicologia Organizacional do Trabalho</p>
+      <h2>Linha de pesquisa</h2>
+      <p>Saúde Mental e Tecnologia</p>
+      <h2>Tema</h2>
+      <p>Como professores de informática lidam com a pressão de "sempre saber tudo" sobre tecnologia</p>
+    </div>
+
+    <div id="slide2" class="slide">
+      <h2>Tema delimitado</h2>
+      <p>Desenvolvimento de estratégias de autocuidado para professores de informática diante da pressão da onisciência tecnológica</p>
+      <h2>Questão problema</h2>
+      <p>Como professores de informática vivenciam e enfrentam a pressão de "sempre saber tudo" sobre tecnologia e quais estratégias de autocuidado podem ser desenvolvidas?</p>
+    </div>
+
+    <div id="slide3" class="slide">
+      <h2>Objetivo geral</h2>
+      <p>Compreender como professores de informática lidam com a pressão de onisciência tecnológica e desenvolver ferramentas práticas de autocuidado.</p>
+      <h2>Objetivos específicos</h2>
+      <ul>
+        <li>Identificar situações que geram ansiedade tecnológica</li>
+        <li>Mapear estratégias de enfrentamento já utilizadas</li>
+        <li>Analisar impactos na saúde mental e qualidade de vida</li>
+        <li>Criar guia prático de autocuidado tecnológico</li>
+        <li>Desenvolver aplicativo de automonitoramento do bem-estar</li>
+      </ul>
+    </div>
+
+    <div id="slide4" class="slide">
+      <h2>Referências Recentes (2022–2025)</h2>
+      <ul>
+        <li><strong>Marrinhas et al. (2023)</strong> – <em>Burnout and technostress during the COVID‑19 pandemic.</em> <a href="https://www.frontiersin.org/articles/10.3389/feduc.2023.1144220/full" target="_blank">Acessar</a></li>
+        <li><strong>Siddiqui, Arif & Hinduja (2023)</strong> – <em>Technostress: A catalyst to leave the teaching profession.</em> <a href="https://journals.sagepub.com/doi/10.1177/20427530221107506" target="_blank">Acessar</a></li>
+        <li><strong>Almutairi (2025)</strong> – <em>Strategies to mitigate anxiety, stress, pressure, and technological fatigue among teachers.</em> <a href="https://systems.enpress-publisher.com/index.php/jipd/article/view/10589" target="_blank">Acessar</a></li>
+        <li><strong>Wang et al. (2023)</strong> – <em>Technostress, personal health and school support.</em> <a href="https://pubmed.ncbi.nlm.nih.gov/38078227/" target="_blank">Acessar</a></li>
+        <li><strong>Turel et al. (2023)</strong> – <em>Mobile technology features and technostress in online teaching.</em> <a href="https://pubmed.ncbi.nlm.nih.gov/37636397/" target="_blank">Acessar</a></li>
+      </ul>
+    </div>
+
+    <div class="navigation">
+      <button onclick="prevSlide()">Anterior</button>
+      <button onclick="nextSlide()">Próximo</button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 1;
+    const totalSlides = 4;
+
+    function showSlide(n) {
+      for (let i = 1; i <= totalSlides; i++) {
+        document.getElementById(`slide${i}`).classList.remove("active");
+      }
+      document.getElementById(`slide${n}`).classList.add("active");
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides) currentSlide++;
+      showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+      if (currentSlide > 1) currentSlide--;
+      showSlide(currentSlide);
+    }
+  </script>
+</body>
+</html>
